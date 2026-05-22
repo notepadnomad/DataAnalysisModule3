@@ -63,3 +63,6 @@ LIMIT 3;
 -- Q10) Show customer full names as a single column 'customer_name'
 --      in the format "Last, First".
 
+SELECT CONCAT(last_name,', ', first_name) AS customer_name
+FROM customers;
+
