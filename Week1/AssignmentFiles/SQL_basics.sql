@@ -32,6 +32,9 @@ WHERE name LIKE '%latte%';
 
 -- Q5) Show distinct payment methods used in the dataset.
 
+SELECT DISTINCT payment_method
+FROM orders;
+
 -- Q6) For each store, list its name and city/state (one row per store).
 
 -- Q7) From orders, show order_id, status, and a computed column total_items
