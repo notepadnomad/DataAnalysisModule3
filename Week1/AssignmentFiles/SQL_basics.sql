@@ -49,6 +49,10 @@ GROUP BY order_ID;
 
 -- Q8) Show orders placed on '2025-09-04' (any time that day).
 
+SELECT *
+FROM orders
+WHERE order_datetime LIKE '%2025-09-04%';
+
 -- Q9) Return the top 3 most expensive products (price, name).
 
 -- Q10) Show customer full names as a single column 'customer_name'
