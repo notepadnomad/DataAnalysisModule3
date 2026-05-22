@@ -37,6 +37,9 @@ FROM orders;
 
 -- Q6) For each store, list its name and city/state (one row per store).
 
+SELECT name, city, state
+FROM stores;
+
 -- Q7) From orders, show order_id, status, and a computed column total_items
 --     that counts how many items are in each order.
 
