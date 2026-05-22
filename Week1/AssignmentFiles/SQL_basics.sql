@@ -55,6 +55,11 @@ WHERE order_datetime LIKE '%2025-09-04%';
 
 -- Q9) Return the top 3 most expensive products (price, name).
 
+SELECT price, name
+FROM products
+ORDER BY price DESC
+LIMIT 3;
+
 -- Q10) Show customer full names as a single column 'customer_name'
 --      in the format "Last, First".
 
