@@ -26,6 +26,10 @@ LIMIT 5;
 
 -- Q4) Find all products with the word 'Latte' in the name.
 
+SELECT *
+FROM products
+WHERE name LIKE '%latte%';
+
 -- Q5) Show distinct payment methods used in the dataset.
 
 -- Q6) For each store, list its name and city/state (one row per store).
