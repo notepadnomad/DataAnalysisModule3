@@ -43,6 +43,10 @@ FROM stores;
 -- Q7) From orders, show order_id, status, and a computed column total_items
 --     that counts how many items are in each order.
 
+SELECT order_ID, status, SUM(order_ID) AS total_quantity
+FROM orders
+GROUP BY order_ID;
+
 -- Q8) Show orders placed on '2025-09-04' (any time that day).
 
 -- Q9) Return the top 3 most expensive products (price, name).
