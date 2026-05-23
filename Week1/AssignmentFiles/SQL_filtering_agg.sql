@@ -26,6 +26,11 @@ GROUP BY order_id;
 -- Q3) How many orders were placed per day (all statuses)?
 --     Return (order_date, orders_count) from orders.
 
+SELECT DATE_FORMAT(order_datetime, '%M %d, %Y') AS order_date,
+COUNT(order_datetime) AS order_count
+FROM orders
+GROUP BY DATE_FORMAT(order_datetime, '%M %d, %Y');
+
 -- Q4) What is the average number of items per PAID order?
 --     Use a subquery or CTE over order_items filtered by order_id IN (...).
 
