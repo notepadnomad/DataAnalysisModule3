@@ -8,6 +8,10 @@ USE coffeeshop_db;
 -- Q1) Compute total items per order.
 --     Return (order_id, total_items) from order_items.
 
+SELECT order_id, SUM(quantity) AS total_items
+FROM order_items
+GROUP BY order_id;
+
 -- Q2) Compute total items per order for PAID orders only.
 --     Return (order_id, total_items). Hint: order_id IN (SELECT ... FROM orders WHERE status='paid').
 
