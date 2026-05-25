@@ -6,7 +6,7 @@ USE coffeeshop_db;
 
 -- Adding full table for reference
 SELECT *
-FROM orders;
+FROM products;
 
 -- Q1) Compute total items per order.
 --     Return (order_id, total_items) from order_items.
@@ -34,8 +34,18 @@ GROUP BY DATE_FORMAT(order_datetime, '%M %d, %Y');
 -- Q4) What is the average number of items per PAID order?
 --     Use a subquery or CTE over order_items filtered by order_id IN (...).
 
+SELECT order_id, ROUND(AVG(quantity), 2) AS order_avg
+FROM order_items
+WHERE order_id IN (SELECT order_id FROM orders WHERE status = 'paid')
+GROUP BY order_id;
+
 -- Q5) Which products (by product_id) have sold the most units overall across all stores?
 --     Return (product_id, total_units), sorted desc.
+
+SELECT product_id, SUM(quantity) AS total_units
+FROM order_items
+GROUP BY product_id
+ORDER BY total_units DESC;
 
 -- Q6) Among PAID orders only, which product_ids have the most units sold?
 --     Return (product_id, total_units_paid), sorted desc.
