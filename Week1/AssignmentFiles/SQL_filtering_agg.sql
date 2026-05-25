@@ -102,7 +102,11 @@ WHERE status = 'paid';
 
 -- Q12) Busiest hour: for PAID orders, show (hour_of_day, orders_count) sorted desc.
 
-SELECT 
+SELECT HOUR(order_datetime) AS hour_of_day, COUNT(order_id) AS orders_count
+FROM orders
+WHERE status = 'paid'
+GROUP BY hour_of_day
+ORDER BY orders_count DESC; 
 
 
 -- ================
