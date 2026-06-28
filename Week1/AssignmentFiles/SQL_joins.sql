@@ -39,6 +39,21 @@ ORDER BY
 -- Q3) Customer order history (PAID only):
 --     For each order, show customer_name, store_name, order_datetime,
 --     order_total (= SUM(quantity * products.price) per order).
+SELECT
+	c.first_name,
+    c.last_name,
+    s.name,
+    o.order_datetime,
+    SUM(oi.quantity * p.price) AS order_total
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+JOIN stores s ON o.order_id = s.store_id
+JOIN order_items oi ON o.order_id = oi.order_id
+JOIN products p ON oi.product_id = p.product_id
+WHERE o.status = 'paid'
+GROUP BY
+    o.order_id
+ORDER BY o.order_datetime;
 
 -- Q4) Left join to find customers who have never placed an order.
 --     Return first_name, last_name, city, state.
